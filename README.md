@@ -11,7 +11,7 @@ $$\mathcal{L}_{CFM} = \mathbb{E}_{t\sim U[0,1], x_0 \sim P_z, x_1 \sim P_1} \| v
 
 $$\mathcal{L}_{CFM}$$
 
-$$\mathbb{E}_{t\sim U[0,1], x_0 \sim P_z, x_1 \sim P_1} $$
+$$\mathbb{E}_{t\sim U[0,1], x_0 \sim P_z, x_1 \sim P_1} \lVert v_{\theta} (t, \psi(x_0|x_1)) - \psi_t'(x_0 | x_1) \rVert^2_2$$
 
 
 $$\lVert v_{\theta} (t, \psi(x_0|x_1)) - \psi_t'(x_0 | x_1) \rVert^2_2$$
