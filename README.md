@@ -11,9 +11,8 @@ $$\mathcal{L}_{CFM} = \mathbb{E}_{t\sim U[0,1], x_0 \sim P_z, x_1 \sim P_1} \| v
 
 $$\mathcal{L}_{CFM}$$
 
-$$\mathbb{E}_{t\sim U[0,1], x_0 \sim P_z, x_1 \sim P_1} \| v_\theta(t, \psi(x_0|x_1)) - \psi_t'(x_0 | x_1)\|$$
+$$\mathbb{E}_{t\sim U[0,1], x_0 \sim P_z, x_1 \sim P_1}$$
 
-$$ \mathbb{E}[f(X)] = \int_{S}f(x) dG(x) $$
 
 Here, $\psi_t(x_0|x_1)$ is the flow map associated with the prescribed flow. We pick it to be $\psi_t(x|y) = (1-(1-\sigma_{min})t)x + ty$.
 
