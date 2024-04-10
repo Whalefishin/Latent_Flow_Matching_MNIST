@@ -7,15 +7,18 @@ This repository provides a minimal example for training a flow matching model in
 Denote the data distribution as $P_1$, we first use a pretrained VAE encoder $E(x)$ to transform it into the latent distribution $P_z = E_\ast P_1$, where $\ast$ is the pushforward operation. We then prescribe a flow path between $z \sim P_z$ and $x_0 \sim P_0 = N(0,I)$, then regress on its velocity field $v_\theta(t,x)$ with the following conditional flow matching (CFM) loss:
 
 
-$$\mathcal{L}_{CFM} = \mathbb{E}_{t\sim U[0,1], x_0 \sim P_z, x_1 \sim P_1} \| v_\theta(t, \psi(x_0|x_1)) - \psi_t'(x_0 | x_1)\|$$.
+<!-- $$\mathcal{L}_{CFM} = \mathbb{E}_{t\sim U[0,1], x_0 \sim P_z, x_1 \sim P_1} \| v_\theta(t, \psi(x_0|x_1)) - \psi_t'(x_0 | x_1)\|$$.
 
-$$_\mathcal{L}_{CFM} = _\mathbb{E}_{t\sim U[0,1], x_0 \sim P_z, x_1 \sim P_1}$$
+$$\mathcal{L}_{CFM} = \mathbb{E}_{t\sim U[0,1], x_0 \sim P_z, x_1 \sim P_1}$$
 
 $$\mathbb{E}_{t\sim U[0,1], x_0 \sim P_z, x_1 \sim P_1} \lVert v_\theta(t, \psi(x_0|x_1)) - \psi_t'(x_0|x_1) \rVert^2_2$$
 
 $$\mathbb{E}_{t\sim U[0,1], x_0 \sim P_z, x_1 \sim P_1}$$
 
-$$\lVert v_\theta(t, \psi(x_0|x_1)) - \psi_t'(x_0 | x_1) \rVert^2_2$$
+$$\lVert v_\theta(t, \psi(x_0|x_1)) - \psi_t'(x_0 | x_1) \rVert^2_2$$ -->
+
+![CFM Loss](./figures/CFM.png)
+
 
 Here, $\psi_t(x_0|x_1)$ is the flow map associated with the prescribed flow. We pick it to be $\psi_t(x|y) = (1-(1-\sigma_{min})t)x + ty$.
 
