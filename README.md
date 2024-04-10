@@ -4,7 +4,7 @@ This repository provides a minimal example for training a flow matching model in
 
 ## Approach
 
-Denote the data distribution as $P_1$, we first use a pretrained VAE encoder $E(x)$ to transform it into the latent distribution $P_z = E_\ast P_1$, where $\ast$ is the pushforward operation. We then prescribe a flow path between $z \sim P_z$ and $x_0 \sim P_0 = N(0,I)$, then regress on its velocity field $v_\theta(t,x)$ with the following conditional flow matching (CFM) loss:
+Denote the data distribution as $P_1$, we first use a VAE encoder $E(x)$ to transform it into the latent distribution $P_z = E_\ast P_1$, where $\ast$ is the pushforward operation. We then prescribe a flow path between $z \sim P_z$ and $x_0 \sim P_0 = N(0,I)$, then regress on its velocity field $v_\theta(t,x)$ with the following conditional flow matching (CFM) loss:
 <br/><br/>
 
 <!-- $$\mathcal{L}_{CFM} = \mathbb{E}_{t\sim U[0,1], x_0 \sim P_z, x_1 \sim P_1} \| v_\theta(t, \psi(x_0|x_1)) - \psi_t'(x_0 | x_1)\|$$.
@@ -19,9 +19,10 @@ $$\lVert v_\theta(t, \psi(x_0|x_1)) - \psi_t'(x_0 | x_1) \rVert^2_2$$ -->
 
 ![CFM Loss](./figures/CFM.png)
 
-<br/><br/>
 
-Here, $\psi_t(x_0|x_1)$ is the flow map associated with the prescribed flow. We pick it to be $\psi_t(x|y) = (1-(1-\sigma_{min})t)x + ty$.
+Here, $\psi_t(x_0|x_1)$ is the flow map associated with the prescribed flow. We pick it to be $\psi_t(x|y) = (1-(1-\sigma_{min})t)x + ty$. 
+
+To generate, we sample $z_0 \sim P_0$, integrate it through the learned flow $z_1 = z_0 + \int_0^1 v_\theta(t,z_t)dt$, then decode it with the VAE decoder $x_1 = D(z_1)$ to get the final image. We parametrize $v_\theta(t,x)$ with a diffusion transformer (DiT) and use an off-the-shelf VAE for $E(x), D(x)$. 
 
 
 ## Results
