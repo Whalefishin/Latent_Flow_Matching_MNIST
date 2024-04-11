@@ -1,10 +1,8 @@
-import matplotlib.pyplot as plt
 import torch
 import torch.nn as nn
 from torch.utils.data import TensorDataset, DataLoader
 from zuko.utils import odeint
 from tqdm import tqdm
-from typing import *
 import numpy as np
 from torchvision.datasets import MNIST
 from torchvision import transforms

@@ -44,6 +44,10 @@ As a sanity check, we can visualize the original and reconstructed digits to ens
 | ------------- | ------------- | ------------- | 
 | ![result](figures/epoch200.png)  | ![result](figures/epoch300.png) | ![result](figures/final.png)  | 
 
+
+
+## Dependencies
+
 The code is tested to work on PyTorch 1.13 and CUDA 11.7. 
 
 ## Experiments
