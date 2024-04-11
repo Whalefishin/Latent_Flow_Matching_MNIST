@@ -48,7 +48,11 @@ As a sanity check, we can visualize the original and reconstructed digits to ens
 
 ## Dependencies
 
-The code is tested to work on PyTorch 1.13 and CUDA 11.7. 
+The code is tested to work on PyTorch 1.13 and CUDA 11.7. The other packages can be installed with 
+
+```
+pip install -r requirements.txt
+```
 
 ## Experiments
 
