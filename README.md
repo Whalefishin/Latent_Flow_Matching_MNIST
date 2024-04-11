@@ -39,6 +39,7 @@ As a sanity check, we can visualize the original and reconstructed digits to ens
 | Epoch 1  | Epoch 50 | Epoch 100 |
 | ------------- | ------------- | ------------- | 
 | ![result](figures/epoch0.png)  | ![result](figures/epoch50.png) | ![result](figures/epoch100.png)  |
+
 | Epoch 200  | Epoch 300 | Final |
 | ------------- | ------------- | ------------- | 
 | ![result](figures/epoch200.png)  | ![result](figures/epoch300.png) | ![result](figures/final.png)  | 
