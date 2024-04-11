@@ -142,8 +142,8 @@ v_t = CondVF(net)
 fm  = FM(v_t, model, d, h, w)
 
 losses = [] 
-optimizer = torch.optim.Adam(v_t.parameters(), lr=1e-3)
-n_epochs = 30
+optimizer = torch.optim.Adam(v_t.parameters(), lr=1e-4)
+n_epochs = 500
     
 # training
 for epoch in range(n_epochs):
