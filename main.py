@@ -135,7 +135,7 @@ vae = AutoencoderKL.from_pretrained(f"stabilityai/sd-vae-ft-ema").to(device)
 
 # Flow matching models
 model = OTFlowMatching()
-net = DiT_S_4(input_size=latent_size, num_classes=10, learn_sigma=False).to(device)
+net = DiT_S_2(input_size=latent_size, num_classes=10, learn_sigma=False).to(device)
 v_t = CondVF(net)
 fm  = FM(v_t, model, d, h, w)
 
