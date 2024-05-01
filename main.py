@@ -125,6 +125,7 @@ batch_size = 32
 n_samples = 16
 img_size = 32
 latent_size = img_size // 8
+greyscale = transforms.Grayscale()
 train_dataloader, val_dataloader = get_data(batch_size)
 
 # VAE used for image embedding
@@ -171,10 +172,10 @@ for epoch in range(n_epochs):
         latent_samples = fm.sample(n_samples)
         # decode the sample into an image
         samples = vae.decode(latent_samples / 0.18215).sample
-        save_image(samples, "epoch{}.png".format(epoch), nrow=4, normalize=True, value_range=(-1, 1))
+        save_image(greyscale(samples), "epoch{}.png".format(epoch), nrow=4, normalize=True, value_range=(-1, 1))
 
 # Sampling
 with torch.no_grad():
     latent_samples = fm.sample(n_samples)
     samples = vae.decode(latent_samples / 0.18215).sample
-    save_image(samples, "samples_final.png", nrow=4, normalize=True, value_range=(-1, 1))
+    save_image(greyscale(samples), "samples_final.png", nrow=4, normalize=True, value_range=(-1, 1))
